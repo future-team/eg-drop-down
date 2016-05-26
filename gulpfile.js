@@ -32,18 +32,26 @@ gulp.task('open', function () {
 
 gulp.task('demo-webpack', function(done) {
 
-  var compiler = webpack(demoWebpackConfig);
+  var wbpk = Object.create(demoWebpackConfig);
+  wbpk.devtool = 'eval';
+  wbpk.entry = [
+    'webpack-dev-server/client?http://127.0.0.1:' + 8081,
+    'webpack/hot/only-dev-server',
+    './example/src/index.js'
+  ];
+
+  wbpk.plugins = [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ];
+
+  var compiler = webpack(wbpk);
 
   var server = new WebpackDevServer(compiler, {
     hot: true,
     historyApiFallback: false,
-    /*proxy: {
-     "*": "http://localhost:9090"
-     },*/
     filename: config.name+".js",
     publicPath: "/example/js",
-
-    //headers: { "X-Custom-Header": "yes" },
     stats: { colors: true }
   });
   server.listen(8081, "localhost", function() {});
@@ -96,7 +104,7 @@ gulp.task('watch', function () {
   gulp.watch(['./lib/**/*.*'], ['demo']);
 });
 
-gulp.task('default', ['babel','require-webpack'/*, 'html', 'asset'*/]);
+gulp.task('default', ['babel','require-webpack','example-webpack']);
 gulp.task('test',['karma']);
 gulp.task('demo', ['demo-webpack','open']);
 gulp.task('min',['min-webpack']);

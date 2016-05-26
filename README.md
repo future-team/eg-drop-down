@@ -1,4 +1,4 @@
-# eg-dropdown
+# eg-drop-down
 
 >使用react构建pc端应用的下拉菜单解决方案，配合eagle-ui将使界面和功能更完善
 
@@ -92,7 +92,7 @@
         ];
     import React, { Component } from 'react';
     import {render} from 'react/lib/ReactDOM';    
-	import {DropDownMenu, MultiDropDownMenu, DropDownSelect,DropDownSuggestion} from "eg-dropdown";
+	import {DropDownMenu, MultiDropDownMenu, DropDownSelect,DropDownSuggestion} from "eg-drop-down";
     	class ModuleName extends Component {
     	render(){
              <MultiDropDownMenu dropDownData={mockMultiDropData} keyName='typeName' leafName='leaf' title="树状列表选择" ref="MultiDropDownMenu"/>
@@ -101,10 +101,10 @@
 ```
 ## UI展示
 >树状下拉选项图
-![树状下拉选项图](/assets/eg-dropdown.png)
+![树状下拉选项图](/assets/eg-drop-down.png)
 
 >普通下拉单选和展示
-![普通下拉单选和展示](/assets/eg-dropdown-demo.png)
+![普通下拉单选和展示](/assets/eg-drop-down-demo.png)
 
 ## instructions[使用方式]
 > 请参考example/src/index.js文件
@@ -113,7 +113,7 @@
 
 ```	bash
     #usage
-        npm install eg-dropdown
+        npm install eg-drop-down
 	#demo
 	    npm run demo	
 ```
