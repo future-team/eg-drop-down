@@ -168,7 +168,6 @@ export default class MultiDropDownMenu extends Component {
                 }
             });
         }
-
         this.setState({
             dropDownBranch:cachedDropDownBranch,
             formGroup:cachedFormGroup,
