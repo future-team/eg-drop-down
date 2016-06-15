@@ -153,7 +153,7 @@ export default class MultiDropDownMenu extends Component {
                     index > -1 && cachedDropDownBranch.splice(index,1);
                 }else{
                     let index = cachedFormGroup.indexOf(data);
-                    cachedFormGroup.indexOf(data)>-1&&cachedFormGroup.splice(index,1);
+                    index>-1&&cachedFormGroup.splice(index,1);
                 }
             });
         }else{
