@@ -1,0 +1,64 @@
+/*下拉菜单*/
+i.drop-down-arrow{
+  position: absolute;
+  top: 50%;
+  margin-top:-2px;
+  right: 6px;
+  font-size: 0;
+  height: 0;
+  width: 0;
+  border-width:5px 5px 0;
+  border-style: solid dashed;
+  border-color: gray transparent transparent;
+  overflow: hidden;
+  -webkit-transition: all ease .4s ;
+  -moz-transition: all ease .4s ;
+  -ms-transition: all ease .4s ;
+  -o-transition: all ease .4s ;
+  transition: all ease .4s ;
+}
+div.question-drop-down-menu{
+  border:1px solid @borderColor;
+  background:#fff;
+  cursor: pointer;
+  position:relative;
+  width:inherit;
+  max-width: 130px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  padding:4px 20px 4px 10px;
+  &:hover{
+    i.drop-down-arrow{
+      transform: rotate(180deg);
+      animation-fill-mode: forwards;
+    }
+    ul.drop-down-list{
+      display: block;
+    }
+  }
+  ul.drop-down-list{
+    padding:4px 20px 4px 10px;
+    background:#fff;
+    width: 100%;
+    max-width: 130px;
+    position: absolute;
+    right: 0;
+    z-index: 1000;
+    display: none;
+    top:100%;
+    left:0;
+    margin-top: 1px;
+    li{
+      &:hover{
+        color:orangered;
+      }
+      overflow: hidden;
+      width: 100%;
+      padding:4px 0;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      word-wrap: normal;
+    }
+  }
+}

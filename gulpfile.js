@@ -44,6 +44,20 @@ gulp.task('demo-webpack', function(done) {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ];
+  wbpk.module={
+    loaders:[
+      {
+        test: /\.jsx?$/,
+        loaders: ['react-hot', 'babel'],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.less$/,
+        loader: "style-loader!css-loader!less-loader"
+
+      }
+    ]
+  }
 
   var compiler = webpack(wbpk);
 

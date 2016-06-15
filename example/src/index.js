@@ -44,11 +44,11 @@ export default class IndexModule extends Component {
                                         }]
                                     },
                                     {
-                                        "typeName": "第3.2级",
+                                        "typeName": "第4.2级",
                                         "children": [ ]
                                     },
                                     {
-                                        "typeName": "第3.3级",
+                                        "typeName": "第4.3级",
                                         "children": [ ],
                                         "leaf":true
                                     }]
@@ -72,13 +72,13 @@ export default class IndexModule extends Component {
                 ]
             },
             {
-                "typeName": "第1.1级",
+                "typeName": "第1.0=级",
                 "children": [
                     {
-                        "typeName":"第2.0级",
+                        "typeName":"第2.0=级",
                         "children": [
                             {
-                                "typeName": "3.0级",
+                                "typeName": "3.0=级",
                                 "children": [ ],
                                 "leaf":true
                             }

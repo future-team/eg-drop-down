@@ -2,10 +2,10 @@
  * Created by mac on 15/9/6.
  */
 var webpack = require('webpack');
-var extend = require('extend');
+//var extend = require('extend');
 
 
-module.exports =extend({},{
+module.exports ={
     devtoll:'inline-source-map',
     output:{
         pathinfo:true
@@ -23,4 +23,4 @@ module.exports =extend({},{
             }
         ]
     }
-});
+};

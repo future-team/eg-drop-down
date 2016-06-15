@@ -1,6 +1,16 @@
 /**
  * Created by slashhuang on 16/5/11.
- *层级下拉菜单栏
+ * 层级下拉菜单栏
+ * 组件建模
+ * 1. dropDownQueue
+ *    === ===[鼠标当前停留的位置，对应的源数组序列号数组]，比如[1,2]代表现在是dropDownData[1].children[2].children数据节点上
+ * 2. formGroup
+ *    === ===[鼠标点击过的数据值存储]
+ * 3. depth
+ *    === ===[目前鼠标点击或者mouseOver的对象对应的上级菜单数据节点]
+ * 4. index
+ *    === ===[目前鼠标点击的列表中的哪一项]
+ *
  */
 import React, { Component ,PropTypes} from 'react';
 
@@ -9,6 +19,7 @@ export default class MultiDropDownMenu extends Component {
     constructor(props,context){
         super(props,context);
         this.state={
+            dropDownBranch:[],//树状分支节点鼠标点击事件存取,
             dropDownQueue:[],//1代表浮动在1.2; 0代表浮动在2.1，
             formGroup:[],//最后存取的数据
             title:props.title,
@@ -71,12 +82,19 @@ export default class MultiDropDownMenu extends Component {
             title:this.renderTitle(cachedFormGroup)||this.props.title
         })
     }
-
     renderList(type,ele,activeIndex,index,depth){
         let xml = null;
-        let {formGroup,keyName}=this.state;
+        let {formGroup,keyName,dropDownBranch}=this.state;
         if(type=='branch'){
+            //树枝节点
             xml = <li key={depth+ele[keyName]} className={index==activeIndex?"on":''}>
+                <div className='multi-list-checkbox'
+                     onClick={()=>{
+                            //设置branch数据状态
+                            this.branchCheckBoxHandler(ele);
+                     }}>
+                    <b className={dropDownBranch.indexOf(ele)>=0?'active':''}></b>
+                </div>
                 <div className='multi-drop-down-list-content'
                      onMouseOver={()=>{
                                     this.calculateNextMenuTree(depth,index)
@@ -87,6 +105,7 @@ export default class MultiDropDownMenu extends Component {
                 <em></em>
             </li>
         }else{
+            //如果数据在formGroup里面，则勾选
             xml = <li className="select-drop-down-input" onClick={()=>{this.checkboxHandler(ele)}} key={depth+ele[keyName]}>
                 <i className={formGroup.indexOf(ele)<0?'check-box':'check-box active'}>
                     <b></b>
@@ -109,8 +128,75 @@ export default class MultiDropDownMenu extends Component {
         //推入数据
         this.setState({
             dropDownQueue:cachedDropDownQueue
+        });
+        return cachedDropDownQueue;
+    }
+    /**
+     * 处理点击树状节点操作
+     *
+     * 增加自动勾选所有的子级别目录 2016.6.15*__*
+     * @param ele
+     */
+    branchCheckBoxHandler(ele){
+        let {dropDownBranch,formGroup}=this.state;
+        //formGroup数据处理
+        //树枝节点的处理
+        let cachedDropDownBranch=dropDownBranch.slice();
+        let cachedFormGroup =formGroup.slice();
+
+        var targetIndex= cachedDropDownBranch.indexOf(ele);
+        if(targetIndex>-1){
+            cachedDropDownBranch.splice(targetIndex,1);
+            this.iterateSourceData(ele.children,function(data){
+                if(data&&!data.leaf){
+                    let index = cachedDropDownBranch.indexOf(data);
+                    index > -1 && cachedDropDownBranch.splice(index,1);
+                }else{
+                    let index = cachedFormGroup.indexOf(data);
+                    cachedFormGroup.indexOf(data)>-1&&cachedFormGroup.splice(index,1);
+                }
+            });
+        }else{
+            cachedDropDownBranch.push(ele);
+            //遍历子树，推送所有的branch
+            this.iterateSourceData(ele.children,function(data){
+                if(data&&!data.leaf){
+                    cachedDropDownBranch.push(data);
+                }else{
+                    let index = cachedFormGroup.indexOf(data);
+                    index<0&&cachedFormGroup.push(data)
+                }
+            });
+        }
+
+        this.setState({
+            dropDownBranch:cachedDropDownBranch,
+            formGroup:cachedFormGroup,
+            title:this.renderTitle(cachedFormGroup)||this.props.title
         })
     }
+    /**
+     * 遍历数据，执行自定义操作
+     */
+    iterateSourceData(data,callback){
+        var func=(data)=>{
+            for(let i=0;i<data.length;i++){
+                callback(data[i]);
+                if(data[i]&&data[i].children){
+                    func(data[i].children);
+                }
+            }
+        };
+        func(data)
+    };
+
+    getSourceData(preQueue){
+        let {dropDownData} = this.props;
+        return  preQueue.reduce((pre,cur)=>{
+                return pre[cur].children
+            }
+        ,dropDownData);
+    };
     /**
      * 下拉children所需要的数据形式
      * [1,2,3]=>
@@ -120,20 +206,17 @@ export default class MultiDropDownMenu extends Component {
      * @type {{dropDownQueue: Array}}
      */
     renderQueuedMenu(dropDownQueue){
-        var dropDownData = this.props.dropDownData;
         var cachedData=[];
         dropDownQueue.reduce((preQueue,cur)=>{
             /**
              * 参数叠加
              */
-            preQueue.push(cur)
+            preQueue.push(cur);
 
             /**
              * 往数组推送数据
              */
-            var childMenuSourceData = preQueue.reduce((pre,cur)=>{
-               return pre[cur].children;
-            },dropDownData);
+            var childMenuSourceData = this.getSourceData.call(this,preQueue);
             if(childMenuSourceData && childMenuSourceData.length>0 ){
                 cachedData.push(this.renderChildMenu(childMenuSourceData,preQueue.length,dropDownQueue));
             }
@@ -178,7 +261,7 @@ export default class MultiDropDownMenu extends Component {
                     <i className='drop-down-arrow'></i>
                 </div>
                 {dropDownData&&dropDownData.length>0?
-                    <div className="question-multi-menu-body">
+                    <div className="question-multi-menu-body" style={{display:'block'}}>
                         {
                             this.renderChildMenu(dropDownData,0,dropDownQueue)/*来自第0层*/
                         }

@@ -1,0 +1,48 @@
+/*下拉联想框*/
+.drop-down-suggestion{
+  width: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  background: #fff;
+  position: relative;
+  max-width: 200px;
+  &>.question-multi-menu-body{
+    min-width: 1000px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    margin-top: -1px;
+    width: inherit;
+    display: none;
+  }
+  &:hover>.question-multi-menu-body{
+    min-width: 1000px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    margin-top: -1px;
+    width: inherit;
+    display: block;
+    li.select-drop-down-input{
+      &:hover,&.on{
+        background: rgba(253,245,242,1);
+        color:orangered;
+      }
+    }
+  }
+  .drop-down-suggestion-head{
+    width: inherit;
+    border:1px solid rgba(0,0,0,0.2);
+    padding: 9px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    &:focus{
+      -webkit-box-shadow: 0 0 3px orangered,inset 0 1px 1px rgba(0,0,0,.075);;
+      -moz-box-shadow: 0 0 3px orangered,inset 0 1px 1px rgba(0,0,0,.075);;
+      box-shadow: 0 0 3px orangered,inset 0 1px 1px rgba(0,0,0,.075);
+    }
+  }
+}
