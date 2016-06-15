@@ -6,9 +6,11 @@
  *    === ===[鼠标当前停留的位置，对应的源数组序列号数组]，比如[1,2]代表现在是dropDownData[1].children[2].children数据节点上
  * 2. formGroup
  *    === ===[鼠标点击过的数据值存储]
- * 3. depth
+ * 3. dropDownBranch
+ *    === ===[树状节点的checkbox数据model]
+ * 4. depth
  *    === ===[目前鼠标点击或者mouseOver的对象对应的上级菜单数据节点]
- * 4. index
+ * 5. index
  *    === ===[目前鼠标点击的列表中的哪一项]
  *
  */
@@ -20,7 +22,7 @@ export default class MultiDropDownMenu extends Component {
         super(props,context);
         this.state={
             dropDownBranch:[],//树状分支节点鼠标点击事件存取,
-            dropDownQueue:[],//1代表浮动在1.2; 0代表浮动在2.1，
+            dropDownQueue:[],
             formGroup:[],//最后存取的数据
             title:props.title,
             keyName:props.keyName,
@@ -132,9 +134,10 @@ export default class MultiDropDownMenu extends Component {
         return cachedDropDownQueue;
     }
     /**
-     * 处理点击树状节点操作
+     * 处理点击树状节点操作，只需考虑子节点的情况
      *
      * 增加自动勾选所有的子级别目录 2016.6.15*__*
+     *
      * @param ele
      */
     branchCheckBoxHandler(ele){
