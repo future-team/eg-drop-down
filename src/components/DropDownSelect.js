@@ -74,14 +74,14 @@ export default class DropDownSelect extends Component {
         let {dropDownData,title}= this.props;
         let {formGroup}=this.state;
         return(
-            <div className='question-multi-menu'>
-                <div className="question-multi-menu-head">
+            <div className='question-drop-menu'>
+                <div className="question-drop-menu-head">
                     <span className="drop-down-hint">
                         {formGroup&&formGroup.join(";")||title}
                     </span>
                     <i className='drop-down-arrow'></i>
                 </div>
-                <div className="question-multi-menu-body">
+                <div className="question-drop-menu-body">
                     {this.renderChildMenu(dropDownData)}
                 </div>
             </div>

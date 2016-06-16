@@ -121,7 +121,7 @@ export default class DropDownSuggestion extends Component {
     }
     renderChildMenu(formGroup){
         let {pressToIndex,status}=this.state;
-        let XML = formGroup&&formGroup.length>0?<div className="question-multi-menu-body">
+        let XML = formGroup&&formGroup.length>0?<div className="question-drop-menu-body">
             <ul className="select-drop-down-list">
                 {
                     formGroup&&formGroup.map((ele,index)=>{

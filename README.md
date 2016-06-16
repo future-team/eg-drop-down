@@ -1,107 +1,57 @@
 # eg-drop-down
 
 >使用react构建pc端应用的下拉菜单解决方案，配合eagle-ui将使界面和功能更完善
-
-> MultiDropDownMenu 渲染树状层级勾选框，可支持无限层级,仅仅依赖简单的数据结构
  
 >DropDownMenu 渲染单层下拉列表
  
 >DropDownSelect 渲染单层下拉单选框
  
- 
 >DropDownSuggestion 渲染联想词下拉框
+
+> MultiDropDownMenu has removed to eg-drop-tree ,use npm install eg-drop-tree instead
+--- 
 
 ## code example(代码示例)
 
 ``` javascript
- let mockMultiDropData=[
-            {
-                "typeName": "第1.0级",
-                "children": [
-                    {
-                        "typeName": "第2.0级",
-                        "children": [
-                            {
-                            "typeName": "第3.0级",
-                            "children": [ ],
-                            "leaf":true
-                            },
-                            {
-                                "typeName":"第3.1级",
-                                "children": [{
-                                    "typeName":"第4.0级",
-                                    "children": [
-                                        {
-                                            "typeName":"第5.0级",
-                                            "children": [ ],
-                                            "leaf":true
-                                        },
-                                        {
-                                            "typeName": "第5.1级",
-                                            "children": [ ]
-                                        },
-                                        {
-                                            "typeName": "第5.2级",
-                                            "children": [ ],
-                                            "leaf":true
-                                        }]
-                                    },
-                                    {
-                                        "typeName": "第3.2级",
-                                        "children": [ ]
-                                    },
-                                    {
-                                        "typeName": "第3.3级",
-                                        "children": [ ],
-                                        "leaf":true
-                                    }]
-                            },
-                            {
-                                "typeName": "第3.2级",
-                                "children": [ ]
-                            },
-                            {
-                                "typeName": "第3.3级",
-                                "children": [ ],
-                                "leaf":true
-                            }
-                        ]
-                    },
-                    {
-                        "typeName": "第2.1级",
-                        "children": [ ],
-                        "leaf":true
-                    }
-                ]
-            },
-            {
-                "typeName": "第1.1级",
-                "children": [
-                    {
-                        "typeName":"第2.0级",
-                        "children": [
-                            {
-                                "typeName": "3.0级",
-                                "children": [ ],
-                                "leaf":true
-                            }
-                        ]
-                    }
-                ]
-            }
-        ];
-    import React, { Component } from 'react';
-    import {render} from 'react/lib/ReactDOM';    
-	import {DropDownMenu, MultiDropDownMenu, DropDownSelect,DropDownSuggestion} from "eg-drop-down";
-    	class ModuleName extends Component {
-    	render(){
-             <MultiDropDownMenu dropDownData={mockMultiDropData} keyName='typeName' leafName='leaf' title="树状列表选择" ref="MultiDropDownMenu"/>
-    	}
-    	}
+    import {DropDownMenu, DropDownSelect,DropDownSuggestion} from "../../src/index.js";//联想功能组件
+    export default class IndexModule extends Component {
+        constructor(props,context){
+            super(props,context);
+        }
+        render(){
+            var bu = [
+                {id: 1,name: "交易后台"},
+                {id: 2,name: "结婚1"}];
+            let menuData=[
+                { data:'近一个周的问题',callback:()=>{alert('clicked')}},
+                { data:'近一个月的问题',callback:()=>{alert('clicked')}},
+                { data:'一个月之前的问题',callback:()=>{alert('clicked')}}];
+            return (
+                <div className="paddingSpace">   
+                    <div style={{fontSize:'12px',display:'inline-block',width:'200px'}}>
+                        <DropDownMenu  dropDownData={menuData} title='单层下拉列表'/>
+                    </div>
+                    <div style={{fontSize:'12px',display:'inline-block',width:'200px'}}>
+                        <DropDownSelect  dropDownData={bu} title='下拉选择框' ref="DropDownSelect"/>
+                    </div>
+                    <div style={{fontSize:'12px',display:'inline-block',width:'200px',verticalAlign:'top'}}>
+                        <DropDownSuggestion url={'/package.json'} placeHolder='下拉联想框' ref="DropDownSuggestion"/>
+                    </div>
+                    <div className='demo-button-container'>
+                        <div className='demo-button' style={{background:'yellow'}} onClick={()=>{this.getDropDownData("DropDownSelect")}}>点击获得下拉选择框的选择数据</div>
+                        <div className='demo-button' style={{background:'blue'}} onClick={()=>{this.getDropDownData('DropDownSuggestion')}}>点击获取下拉联想框的选择数据</div>
+                    </div>
+                </div>
+            );
+        }
+        getDropDownData(type){
+            alert(JSON.stringify(this.refs[type].formData));
+        }
+    }
+    render(<IndexModule/>,document.getElementById('root'));
 ```
 ## UI展示
->树状下拉选项图
-![树状下拉选项图](/assets/eg-drop-down.png)
 
 >普通下拉单选和展示
 ![普通下拉单选和展示](/assets/eg-drop-down-demo.png)

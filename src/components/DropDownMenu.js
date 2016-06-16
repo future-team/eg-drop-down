@@ -35,22 +35,22 @@ export default class DropDownMenu extends Component {
 
     render(){
         let {title,dropDownData}= this.state;
-        return(<div className='question-multi-menu'>
-            <div className="question-multi-menu-head">
+        return(<div className='question-drop-menu'>
+            <div className="question-drop-menu-head">
                     <span className="drop-down-hint">
                         {title}
                     </span>
                 <i className='drop-down-arrow'></i>
             </div>
-            <div className="question-multi-menu-body">
-                <ul className="select-drop-down-list multi-drop-down-list">
+            <div className="question-drop-menu-body">
+                <ul className="select-drop-down-list">
                     {
                         dropDownData&&dropDownData.map((ele)=>{
                             return <li onClick={()=>{ele.callback(); this.clickCallback(ele.data);}}
-                                       key={ele.data}>
-                                        <div className="multi-drop-down-list-content">
+                                       key={ele.data}
+                                       className="select-drop-down-input"
+                                >
                                         {ele.data}
-                                    </div>
                                 </li>
                         })
                     }

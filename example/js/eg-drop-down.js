@@ -68,7 +68,7 @@
 
 	//联想功能组件
 
-	__webpack_require__(174);
+	__webpack_require__(173);
 
 	var IndexModule = (function (_Component) {
 	    _inherits(IndexModule, _Component);
@@ -82,62 +82,6 @@
 	    IndexModule.prototype.render = function render() {
 	        var _this = this;
 
-	        var mockMultiDropData = [{
-	            "typeName": "第1.0级",
-	            "children": [{
-	                "typeName": "第2.0级",
-	                "children": [{
-	                    "typeName": "第3.0级",
-	                    "children": [],
-	                    "leaf": true
-	                }, {
-	                    "typeName": "第3.1级",
-	                    "children": [{
-	                        "typeName": "第4.0级",
-	                        "children": [{
-	                            "typeName": "第5.0级",
-	                            "children": [],
-	                            "leaf": true
-	                        }, {
-	                            "typeName": "第5.1级",
-	                            "children": []
-	                        }, {
-	                            "typeName": "第5.2级",
-	                            "children": [],
-	                            "leaf": true
-	                        }]
-	                    }, {
-	                        "typeName": "第4.2级",
-	                        "children": []
-	                    }, {
-	                        "typeName": "第4.3级",
-	                        "children": [],
-	                        "leaf": true
-	                    }]
-	                }, {
-	                    "typeName": "第3.2级",
-	                    "children": []
-	                }, {
-	                    "typeName": "第3.3级",
-	                    "children": [],
-	                    "leaf": true
-	                }]
-	            }, {
-	                "typeName": "第2.1级",
-	                "children": [],
-	                "leaf": true
-	            }]
-	        }, {
-	            "typeName": "第1.0=级",
-	            "children": [{
-	                "typeName": "第2.0=级",
-	                "children": [{
-	                    "typeName": "3.0=级",
-	                    "children": [],
-	                    "leaf": true
-	                }]
-	            }]
-	        }];
 	        var bu = [{ id: 1, name: "交易后台" }, { id: 2, name: "结婚1" }];
 	        var menuData = [{ data: '近一个周的问题', callback: function callback() {
 	                alert('clicked');
@@ -150,11 +94,6 @@
 	        return _react2['default'].createElement(
 	            'div',
 	            { className: 'paddingSpace' },
-	            _react2['default'].createElement(
-	                'div',
-	                { style: { fontSize: '12px', display: 'inline-block', width: '200px' } },
-	                _react2['default'].createElement(_srcIndexJs.MultiDropDownMenu, { dropDownData: mockMultiDropData, keyName: 'typeName', leafName: 'leaf', title: '树状列表选择', ref: 'MultiDropDownMenu' })
-	            ),
 	            _react2['default'].createElement(
 	                'div',
 	                { style: { fontSize: '12px', display: 'inline-block', width: '200px' } },
@@ -173,13 +112,6 @@
 	            _react2['default'].createElement(
 	                'div',
 	                { className: 'demo-button-container' },
-	                _react2['default'].createElement(
-	                    'div',
-	                    { className: 'demo-button', style: { background: 'red' }, onClick: function () {
-	                            _this.getDropDownData('MultiDropDownMenu');
-	                        } },
-	                    '点击获取树状列表的选择结果'
-	                ),
 	                _react2['default'].createElement(
 	                    'div',
 	                    { className: 'demo-button', style: { background: 'yellow' }, onClick: function () {
@@ -19828,27 +19760,20 @@
 
 	//单向下拉菜单
 
-	var _componentsMultiDropDownMenuJs = __webpack_require__(165);
-
-	var _componentsMultiDropDownMenuJs2 = _interopRequireDefault(_componentsMultiDropDownMenuJs);
-
-	//下拉层级菜单
-
-	var _componentsDropDownSelectJs = __webpack_require__(166);
+	var _componentsDropDownSelectJs = __webpack_require__(165);
 
 	var _componentsDropDownSelectJs2 = _interopRequireDefault(_componentsDropDownSelectJs);
 
 	//下拉多选框
 
-	var _componentsDropDownSuggestionJs = __webpack_require__(167);
+	var _componentsDropDownSuggestionJs = __webpack_require__(166);
 
 	var _componentsDropDownSuggestionJs2 = _interopRequireDefault(_componentsDropDownSuggestionJs);
 
 	//联想功能组件
-	__webpack_require__(170);
+	__webpack_require__(169);
 	var DropDown = {
 	    DropDownMenu: _componentsDropDownMenuJs2['default'],
-	    MultiDropDownMenu: _componentsMultiDropDownMenuJs2['default'],
 	    DropDownSelect: _componentsDropDownSelectJs2['default'],
 	    DropDownSuggestion: _componentsDropDownSuggestionJs2['default']
 	};
@@ -19911,10 +19836,10 @@
 
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: 'question-multi-menu' },
+	            { className: 'question-drop-menu' },
 	            _react2['default'].createElement(
 	                'div',
-	                { className: 'question-multi-menu-head' },
+	                { className: 'question-drop-menu-head' },
 	                _react2['default'].createElement(
 	                    'span',
 	                    { className: 'drop-down-hint' },
@@ -19924,22 +19849,20 @@
 	            ),
 	            _react2['default'].createElement(
 	                'div',
-	                { className: 'question-multi-menu-body' },
+	                { className: 'question-drop-menu-body' },
 	                _react2['default'].createElement(
 	                    'ul',
-	                    { className: 'select-drop-down-list multi-drop-down-list' },
+	                    { className: 'select-drop-down-list' },
 	                    dropDownData && dropDownData.map(function (ele) {
 	                        return _react2['default'].createElement(
 	                            'li',
 	                            { onClick: function () {
 	                                    ele.callback();_this.clickCallback(ele.data);
 	                                },
-	                                key: ele.data },
-	                            _react2['default'].createElement(
-	                                'div',
-	                                { className: 'multi-drop-down-list-content' },
-	                                ele.data
-	                            )
+	                                key: ele.data,
+	                                className: 'select-drop-down-input'
+	                            },
+	                            ele.data
 	                        );
 	                    })
 	                )
@@ -19977,364 +19900,6 @@
 
 /***/ },
 /* 165 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Created by slashhuang on 16/5/11.
-	 * 层级下拉菜单栏
-	 * 组件建模
-	 * 1. dropDownQueue
-	 *    === ===[鼠标当前停留的位置，对应的源数组序列号数组]，比如[1,2]代表现在是dropDownData[1].children[2].children数据节点上
-	 * 2. formGroup
-	 *    === ===[鼠标点击过的数据值存储]
-	 * 3. depth
-	 *    === ===[目前鼠标点击或者mouseOver的对象对应的上级菜单数据节点]
-	 * 4. index
-	 *    === ===[目前鼠标点击的列表中的哪一项]
-	 *
-	 */
-	'use strict';
-
-	exports.__esModule = true;
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(6);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var MultiDropDownMenu = (function (_Component) {
-	    _inherits(MultiDropDownMenu, _Component);
-
-	    function MultiDropDownMenu(props, context) {
-	        _classCallCheck(this, MultiDropDownMenu);
-
-	        _Component.call(this, props, context);
-	        this.state = {
-	            dropDownBranch: [], //树状分支节点鼠标点击事件存取,
-	            dropDownQueue: [], //1代表浮动在1.2; 0代表浮动在2.1，
-	            formGroup: [], //最后存取的数据
-	            title: props.title,
-	            keyName: props.keyName,
-	            leafName: props.leafName
-	        };
-	        this.formData = this.state.formGroup;
-	    }
-
-	    /**
-	     * 渲染标题
-	     * @param formGroup
-	     *
-	     * @return {*}
-	     */
-
-	    MultiDropDownMenu.prototype.renderTitle = function renderTitle(formGroup) {
-	        var keyName = this.state.keyName;
-	        return formGroup && formGroup.reduce(function (pre, ele) {
-	            return pre + ele[keyName] + ';';
-	        }, '');
-	    };
-
-	    /**
-	     * 处理多选框点击操作
-	     * @param ele
-	     */
-
-	    MultiDropDownMenu.prototype.checkboxHandler = function checkboxHandler(ele) {
-	        var cachedFormGroup = this.state.formGroup;
-	        /**
-	         * 按照如下格式存取对外调用的数据，确保完备
-	         * [ele]//ele为数组中的每一项
-	         */
-	        var targetIndex = cachedFormGroup.indexOf(ele);
-	        if (targetIndex > -1) {
-	            cachedFormGroup.splice(targetIndex, 1);
-	        } else {
-	            cachedFormGroup.push(ele);
-	        }
-	        this.setState({
-	            formGroup: cachedFormGroup,
-	            title: this.renderTitle(cachedFormGroup) || this.props.title
-	        });
-	    };
-
-	    MultiDropDownMenu.prototype.renderList = function renderList(type, ele, activeIndex, index, depth) {
-	        var _this = this;
-
-	        var xml = null;
-	        var _state = this.state;
-	        var formGroup = _state.formGroup;
-	        var keyName = _state.keyName;
-	        var dropDownBranch = _state.dropDownBranch;
-
-	        if (type == 'branch') {
-	            //树枝节点
-	            xml = _react2['default'].createElement(
-	                'li',
-	                { key: depth + ele[keyName], className: index == activeIndex ? "on" : '' },
-	                _react2['default'].createElement(
-	                    'div',
-	                    { className: 'multi-list-checkbox',
-	                        onClick: function () {
-	                            //设置branch数据状态
-	                            _this.branchCheckBoxHandler(ele);
-	                        } },
-	                    _react2['default'].createElement('b', { className: dropDownBranch.indexOf(ele) >= 0 ? 'active' : '' })
-	                ),
-	                _react2['default'].createElement(
-	                    'div',
-	                    { className: 'multi-drop-down-list-content',
-	                        onMouseOver: function () {
-	                            _this.calculateNextMenuTree(depth, index);
-	                        }
-	                    },
-	                    ele[keyName]
-	                ),
-	                _react2['default'].createElement('em', null)
-	            );
-	        } else {
-	            //如果数据在formGroup里面，则勾选
-	            xml = _react2['default'].createElement(
-	                'li',
-	                { className: 'select-drop-down-input', onClick: function () {
-	                        _this.checkboxHandler(ele);
-	                    }, key: depth + ele[keyName] },
-	                _react2['default'].createElement(
-	                    'i',
-	                    { className: formGroup.indexOf(ele) < 0 ? 'check-box' : 'check-box active' },
-	                    _react2['default'].createElement('b', null)
-	                ),
-	                _react2['default'].createElement(
-	                    'div',
-	                    { className: 'select-drop-down-check-content' },
-	                    ' ',
-	                    ele[keyName]
-	                )
-	            );
-	        }
-	        return xml;
-	    };
-
-	    /**
-	     * 计算新的menu队列数据
-	     * @param depth 状态数组深度
-	     * @param index 替换的序数号
-	     */
-
-	    MultiDropDownMenu.prototype.calculateNextMenuTree = function calculateNextMenuTree(depth, index) {
-	        var cachedDropDownQueue = this.state.dropDownQueue;
-	        cachedDropDownQueue = cachedDropDownQueue.slice(0, depth); //每次鼠标浮动，保留之前的
-	        cachedDropDownQueue[depth] = index; //队列尾部添加序数号
-	        //推入数据
-	        this.setState({
-	            dropDownQueue: cachedDropDownQueue
-	        });
-	        return cachedDropDownQueue;
-	    };
-
-	    /**
-	     * 处理点击树状节点操作
-	     *
-	     * 增加自动勾选所有的子级别目录 2016.6.15*__*
-	     * @param ele
-	     */
-
-	    MultiDropDownMenu.prototype.branchCheckBoxHandler = function branchCheckBoxHandler(ele) {
-	        var _state2 = this.state;
-	        var dropDownBranch = _state2.dropDownBranch;
-	        var formGroup = _state2.formGroup;
-
-	        //formGroup数据处理
-	        //树枝节点的处理
-	        var cachedDropDownBranch = dropDownBranch.slice();
-	        var cachedFormGroup = formGroup.slice();
-
-	        var targetIndex = cachedDropDownBranch.indexOf(ele);
-	        if (targetIndex > -1) {
-	            cachedDropDownBranch.splice(targetIndex, 1);
-	            this.iterateSourceData(ele.children, function (data) {
-	                if (data && !data.leaf) {
-	                    var index = cachedDropDownBranch.indexOf(data);
-	                    index > -1 && cachedDropDownBranch.splice(index, 1);
-	                } else {
-	                    var index = cachedFormGroup.indexOf(data);
-	                    index > -1 && cachedFormGroup.splice(index, 1);
-	                }
-	            });
-	        } else {
-	            cachedDropDownBranch.push(ele);
-	            //遍历子树，推送所有的branch
-	            this.iterateSourceData(ele.children, function (data) {
-	                if (data && !data.leaf) {
-	                    cachedDropDownBranch.push(data);
-	                } else {
-	                    var index = cachedFormGroup.indexOf(data);
-	                    index < 0 && cachedFormGroup.push(data);
-	                }
-	            });
-	        }
-	        this.setState({
-	            dropDownBranch: cachedDropDownBranch,
-	            formGroup: cachedFormGroup,
-	            title: this.renderTitle(cachedFormGroup) || this.props.title
-	        });
-	    };
-
-	    /**
-	     * 遍历数据，执行自定义操作
-	     */
-
-	    MultiDropDownMenu.prototype.iterateSourceData = function iterateSourceData(data, callback) {
-	        var func = function func(data) {
-	            for (var i = 0; i < data.length; i++) {
-	                callback(data[i]);
-	                if (data[i] && data[i].children) {
-	                    func(data[i].children);
-	                }
-	            }
-	        };
-	        func(data);
-	    };
-
-	    MultiDropDownMenu.prototype.getSourceData = function getSourceData(preQueue) {
-	        var dropDownData = this.props.dropDownData;
-
-	        return preQueue.reduce(function (pre, cur) {
-	            return pre[cur].children;
-	        }, dropDownData);
-	    };
-
-	    /**
-	     * 下拉children所需要的数据形式
-	     * [1,2,3]=>
-	     * dropDownData[1].children//第1层
-	     * dropDownData[1].children[2].children
-	     * dropDownData[1].children[2].children[3]
-	     * @type {{dropDownQueue: Array}}
-	     */
-
-	    MultiDropDownMenu.prototype.renderQueuedMenu = function renderQueuedMenu(dropDownQueue) {
-	        var _this2 = this;
-
-	        var cachedData = [];
-	        dropDownQueue.reduce(function (preQueue, cur) {
-	            /**
-	             * 参数叠加
-	             */
-	            preQueue.push(cur);
-
-	            /**
-	             * 往数组推送数据
-	             */
-	            var childMenuSourceData = _this2.getSourceData.call(_this2, preQueue);
-	            if (childMenuSourceData && childMenuSourceData.length > 0) {
-	                cachedData.push(_this2.renderChildMenu(childMenuSourceData, preQueue.length, dropDownQueue));
-	            }
-	            return preQueue;
-	        }, []);
-	        return cachedData;
-	    };
-
-	    /**
-	     *
-	     * @param listData 菜单数据
-	     * @param depth 菜单深度(parent的节点)
-	     * @return {XML}
-	     * active的序数号码dropDownQueue[depth+1]
-	     */
-
-	    MultiDropDownMenu.prototype.renderChildMenu = function renderChildMenu(listData, depth, dropDownQueue) {
-	        var _this3 = this;
-
-	        var leafName = this.state.leafName;
-
-	        var activeIndex = dropDownQueue[depth];
-	        var XML = _react2['default'].createElement(
-	            'ul',
-	            { className: 'multi-drop-down-list select-drop-down-list', key: depth },
-	            listData && listData.map(function (ele, index) {
-	                return ele[leafName] ? _this3.renderList('leaf', ele, activeIndex, index, depth) : _this3.renderList('branch', ele, activeIndex, index, depth);
-	            })
-	        );
-	        return XML;
-	    };
-
-	    MultiDropDownMenu.prototype.render = function render() {
-	        var _this4 = this;
-
-	        var dropDownData = this.props.dropDownData;
-	        var _state3 = this.state;
-	        var dropDownQueue = _state3.dropDownQueue;
-	        var title = _state3.title;
-
-	        return _react2['default'].createElement(
-	            'div',
-	            { className: 'question-multi-menu' },
-	            _react2['default'].createElement(
-	                'div',
-	                { className: 'question-multi-menu-head', onMouseOver: function () {
-	                        _this4.setState({
-	                            dropDownQueue: []
-	                        });
-	                    } },
-	                _react2['default'].createElement(
-	                    'span',
-	                    { className: 'drop-down-hint' },
-	                    title
-	                ),
-	                _react2['default'].createElement('i', { className: 'drop-down-arrow' })
-	            ),
-	            dropDownData && dropDownData.length > 0 ? _react2['default'].createElement(
-	                'div',
-	                { className: 'question-multi-menu-body', style: { display: 'block' } },
-	                this.renderChildMenu(dropDownData, 0, dropDownQueue),
-	                /*来自第0层*/
-	                this.renderQueuedMenu(dropDownQueue)
-	            ) : null
-	        );
-	    };
-
-	    _createClass(MultiDropDownMenu, null, [{
-	        key: 'defaultProps',
-	        value: {
-	            leafName: 'leaf',
-	            keyName: 'keyName',
-	            title: '下拉菜单'
-	        },
-	        enumerable: true
-	    }, {
-	        key: 'propTypes',
-	        value: {
-	            /**
-	             * ui展示的数据结构中的键值
-	             * */
-	            keyName: _react.PropTypes.string,
-	            /**
-	             * 初始化展示头部文字
-	             * */
-	            title: _react.PropTypes.string,
-	            /**
-	             * 叶子节点的键值(true or false)
-	             * */
-	            leafName: _react.PropTypes.string
-	        },
-	        enumerable: true
-	    }]);
-
-	    return MultiDropDownMenu;
-	})(_react.Component);
-
-	exports['default'] = MultiDropDownMenu;
-	module.exports = exports['default'];
-
-/***/ },
-/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20437,10 +20002,10 @@
 
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: 'question-multi-menu' },
+	            { className: 'question-drop-menu' },
 	            _react2['default'].createElement(
 	                'div',
-	                { className: 'question-multi-menu-head' },
+	                { className: 'question-drop-menu-head' },
 	                _react2['default'].createElement(
 	                    'span',
 	                    { className: 'drop-down-hint' },
@@ -20450,7 +20015,7 @@
 	            ),
 	            _react2['default'].createElement(
 	                'div',
-	                { className: 'question-multi-menu-body' },
+	                { className: 'question-drop-menu-body' },
 	                this.renderChildMenu(dropDownData)
 	            )
 	        );
@@ -20485,7 +20050,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 167 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20506,9 +20071,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(168);
+	var _reactDom = __webpack_require__(167);
 
-	var _utilsDrawingJs = __webpack_require__(169);
+	var _utilsDrawingJs = __webpack_require__(168);
 
 	var _utilsDrawingJs2 = _interopRequireDefault(_utilsDrawingJs);
 
@@ -20652,7 +20217,7 @@
 
 	        var XML = formGroup && formGroup.length > 0 ? _react2['default'].createElement(
 	            'div',
-	            { className: 'question-multi-menu-body' },
+	            { className: 'question-drop-menu-body' },
 	            _react2['default'].createElement(
 	                'ul',
 	                { className: 'select-drop-down-list' },
@@ -20727,7 +20292,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 168 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20736,7 +20301,7 @@
 
 
 /***/ },
-/* 169 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20805,16 +20370,16 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 170 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(171);
+	var content = __webpack_require__(170);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(173)(content, {});
+	var update = __webpack_require__(172)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -20831,21 +20396,21 @@
 	}
 
 /***/ },
-/* 171 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(172)();
+	exports = module.exports = __webpack_require__(171)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".common-input-cancel-button {\n  margin-left: 13px;\n  display: inline-block;\n  vertical-align: middle;\n  -webkit-border-radius: 100px;\n  -moz-border-radius: 100px;\n  border-radius: 100px;\n  background: rgba(224, 224, 224, 0.9);\n  position: relative;\n}\n.common-input-cancel-button i {\n  position: absolute;\n  top: 50%;\n  margin-top: -1px;\n  height: 1px;\n  left: 2px;\n  display: block;\n  background: #ffffff;\n}\n.common-input-cancel-button i.left-rotate {\n  -webkit-transform: rotate(135deg);\n  -moz-transform: rotate(135deg);\n  -ms-transform: rotate(135deg);\n  -o-transform: rotate(135deg);\n  transform: rotate(135deg);\n}\n.common-input-cancel-button i.right-rotate {\n  -webkit-transform: rotate(45deg);\n  -moz-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  -o-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n/*下拉菜单*/\ni.drop-down-arrow {\n  position: absolute;\n  top: 50%;\n  margin-top: -2px;\n  right: 6px;\n  font-size: 0;\n  height: 0;\n  width: 0;\n  border-width: 5px 5px 0;\n  border-style: solid dashed;\n  border-color: gray transparent transparent;\n  overflow: hidden;\n  -webkit-transition: all ease .4s ;\n  -moz-transition: all ease .4s ;\n  -ms-transition: all ease .4s ;\n  -o-transition: all ease .4s ;\n  transition: all ease .4s ;\n}\ndiv.question-drop-down-menu {\n  border: 1px solid #CDCDCD;\n  background: #fff;\n  cursor: pointer;\n  position: relative;\n  width: inherit;\n  max-width: 130px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  word-wrap: normal;\n  padding: 4px 20px 4px 10px;\n}\ndiv.question-drop-down-menu:hover i.drop-down-arrow {\n  transform: rotate(180deg);\n  animation-fill-mode: forwards;\n}\ndiv.question-drop-down-menu:hover ul.drop-down-list {\n  display: block;\n}\ndiv.question-drop-down-menu ul.drop-down-list {\n  padding: 4px 20px 4px 10px;\n  background: #fff;\n  width: 100%;\n  max-width: 130px;\n  position: absolute;\n  right: 0;\n  z-index: 1000;\n  display: none;\n  top: 100%;\n  left: 0;\n  margin-top: 1px;\n}\ndiv.question-drop-down-menu ul.drop-down-list li {\n  overflow: hidden;\n  width: 100%;\n  padding: 4px 0;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  word-wrap: normal;\n}\ndiv.question-drop-down-menu ul.drop-down-list li:hover {\n  color: orangered;\n}\n.select-drop-down-list {\n  font-size: 14px;\n  padding: 6px;\n  margin-left: -1px;\n  border: 1px solid #ccc;\n  -webkit-border-radius: 3px;\n  -moz-border-radius: 3px;\n  border-radius: 3px;\n  -webkit-box-shadow: -3px 2px 3px rgba(150, 150, 150, 0.3), 3px -2px 3px rgba(150, 150, 150, 0.3);\n  -moz-box-shadow: -3px 2px 3px rgba(150, 150, 150, 0.3), 3px -2px 3px rgba(150, 150, 150, 0.3);\n  box-shadow: -3px 2px 3px rgba(150, 150, 150, 0.3), 3px -2px 3px rgba(150, 150, 150, 0.3);\n  width: 200px;\n  background: #fff;\n  display: inline-block;\n  vertical-align: top;\n}\n.select-drop-down-list li.select-drop-down-input {\n  padding: 6px 24px 6px 6px;\n  position: relative;\n}\n.select-drop-down-list li.select-drop-down-input i.active.check-box {\n  border: 1px solid rgba(0, 0, 0, 0.2);\n}\n.select-drop-down-list li.select-drop-down-input i.active.check-box b {\n  display: block;\n  margin-left: 2px;\n  margin-top: -2px;\n  width: 5px;\n  height: 9px;\n  -webkit-transform: rotate(45deg);\n  -moz-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  -o-transform: rotate(45deg);\n  transform: rotate(45deg);\n  border: 1px solid;\n  border-color: transparent orangered orangered transparent;\n}\n.select-drop-down-list li.select-drop-down-input i.check-box {\n  width: 16px;\n  height: 16px;\n  padding: 2px;\n  display: inline-block;\n  vertical-align: middle;\n  -webkit-border-radius: 2px;\n  -moz-border-radius: 2px;\n  border-radius: 2px;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n}\n.select-drop-down-list li.select-drop-down-input .select-drop-down-check-content {\n  margin-left: 8px;\n  width: 130px;\n  display: inline-block;\n  vertical-align: middle;\n}\n.select-drop-down-list li.select-drop-down-input .select-drop-down-check-content span {\n  word-wrap: break-word;\n}\n/*下拉联想框*/\n.drop-down-suggestion {\n  width: inherit;\n  font-size: 14px;\n  cursor: pointer;\n  background: #fff;\n  position: relative;\n  max-width: 200px;\n}\n.drop-down-suggestion > .question-multi-menu-body {\n  min-width: 1000px;\n  position: absolute;\n  top: 100%;\n  left: 0;\n  z-index: 1000;\n  margin-top: -1px;\n  width: inherit;\n  display: none;\n}\n.drop-down-suggestion:hover > .question-multi-menu-body {\n  min-width: 1000px;\n  position: absolute;\n  top: 100%;\n  left: 0;\n  z-index: 1000;\n  margin-top: -1px;\n  width: inherit;\n  display: block;\n}\n.drop-down-suggestion:hover > .question-multi-menu-body li.select-drop-down-input:hover,\n.drop-down-suggestion:hover > .question-multi-menu-body li.select-drop-down-input.on {\n  background: #fdf5f2;\n  color: orangered;\n}\n.drop-down-suggestion .drop-down-suggestion-head {\n  width: inherit;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  padding: 9px;\n  -webkit-border-radius: 3px;\n  -moz-border-radius: 3px;\n  border-radius: 3px;\n}\n.drop-down-suggestion .drop-down-suggestion-head:focus {\n  -webkit-box-shadow: 0 0 3px orangered, inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  -moz-box-shadow: 0 0 3px orangered, inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  box-shadow: 0 0 3px orangered, inset 0 1px 1px rgba(0, 0, 0, 0.075);\n}\n.question-multi-menu {\n  font-size: 14px;\n  cursor: pointer;\n  background: #fff;\n  position: relative;\n  width: inherit;\n  max-width: 200px;\n}\n.question-multi-menu .question-multi-menu-head {\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  padding: 9px;\n  -webkit-border-radius: 3px;\n  -moz-border-radius: 3px;\n  border-radius: 3px;\n}\n.question-multi-menu .question-multi-menu-head .drop-down-hint {\n  display: block;\n  overflow: hidden;\n  padding-right: 10px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  word-wrap: normal;\n}\n.question-multi-menu:hover .question-multi-menu-body {\n  display: block;\n}\n.question-multi-menu:hover .question-multi-menu-head {\n  -webkit-box-shadow: 0 0 3px orangered, inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  -moz-box-shadow: 0 0 3px orangered, inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  box-shadow: 0 0 3px orangered, inset 0 1px 1px rgba(0, 0, 0, 0.075);\n}\n.question-multi-menu:hover i.drop-down-arrow {\n  transform: rotate(180deg);\n  animation-fill-mode: forwards;\n}\n.question-multi-menu .question-multi-menu-body {\n  min-width: 1000px;\n  position: absolute;\n  top: 100%;\n  left: 0;\n  z-index: 1000;\n  display: none;\n  margin-top: -1px;\n}\n.question-multi-menu .question-multi-menu-body:after {\n  content: '';\n  display: block;\n  clear: both;\n}\n.question-multi-menu .question-multi-menu-body ul.multi-drop-down-list {\n  margin-left: -1px;\n  border: 1px solid #ccc;\n  -webkit-border-radius: 3px;\n  -moz-border-radius: 3px;\n  border-radius: 3px;\n  -webkit-box-shadow: -3px 2px 3px rgba(150, 150, 150, 0.3), 3px -2px 3px rgba(150, 150, 150, 0.3);\n  -moz-box-shadow: -3px 2px 3px rgba(150, 150, 150, 0.3), 3px -2px 3px rgba(150, 150, 150, 0.3);\n  box-shadow: -3px 2px 3px rgba(150, 150, 150, 0.3), 3px -2px 3px rgba(150, 150, 150, 0.3);\n  width: 200px;\n  background: #fff;\n  padding: 3px;\n  display: inline-block;\n  vertical-align: top;\n}\n.question-multi-menu .question-multi-menu-body ul.multi-drop-down-list li {\n  position: relative;\n  overflow: hidden;\n  background: #ffffff;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  word-wrap: normal;\n}\n.question-multi-menu .question-multi-menu-body ul.multi-drop-down-list li em {\n  position: absolute;\n  right: 11px;\n  top: 10px;\n  width: 8px;\n  height: 8px;\n  -webkit-transform: rotate(45deg);\n  -moz-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  -o-transform: rotate(45deg);\n  transform: rotate(45deg);\n  border-right: 2px solid #ddd;\n  border-top: 2px solid #ddd;\n}\n.question-multi-menu .question-multi-menu-body ul.multi-drop-down-list li div.multi-list-checkbox {\n  width: 16px;\n  height: 16px;\n  padding: 2px;\n  -webkit-border-radius: 2px;\n  -moz-border-radius: 2px;\n  border-radius: 2px;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  position: absolute;\n  top: 50%;\n  left: 6px;\n  margin-top: -8px;\n}\n.question-multi-menu .question-multi-menu-body ul.multi-drop-down-list li div.multi-list-checkbox b.active {\n  display: block;\n  margin-left: 2px;\n  margin-top: -2px;\n  width: 5px;\n  height: 9px;\n  -webkit-transform: rotate(45deg);\n  -moz-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  -o-transform: rotate(45deg);\n  transform: rotate(45deg);\n  border: 1px solid;\n  border-color: transparent orangered orangered transparent;\n}\n.question-multi-menu .question-multi-menu-body ul.multi-drop-down-list li div.multi-drop-down-list-content {\n  padding: 6px 24px 6px 29px;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.question-multi-menu .question-multi-menu-body ul.multi-drop-down-list li.on div.multi-drop-down-list-content {\n  background: #fdf5f2;\n  color: orangered;\n}\n.question-multi-menu .question-multi-menu-body ul.multi-drop-down-list li.on em {\n  position: absolute;\n  top: 50%;\n  right: 15px;\n  font-size: 0;\n  height: 0;\n  width: 0;\n  border-width: 9px 0 9px 9px;\n  border-style: solid dashed;\n  border-color: #ce591d transparent transparent;\n  overflow: hidden;\n  margin-top: -5px;\n}\n.question-list-panel .question-list {\n  font-size: 14px;\n  padding: 11px 9px 4px;\n}\n.question-list-panel .question-list:nth-child(even) {\n  background-color: #f6f6f6;\n}\n.question-list-panel .question-list span {\n  display: inline-block;\n}\n.question-list-panel .question-list .list-status {\n  text-align: center;\n}\n.question-list-panel .question-list .operate-question {\n  padding: 5px;\n  width: 80px;\n  margin: 0 auto 10px;\n  color: #333;\n  cursor: pointer;\n}\n.question-list-panel .question-list .check-detail {\n  color: #28A1C5;\n}\n", ""]);
+	exports.push([module.id, ".common-input-cancel-button {\n  margin-left: 13px;\n  display: inline-block;\n  vertical-align: middle;\n  -webkit-border-radius: 100px;\n  -moz-border-radius: 100px;\n  border-radius: 100px;\n  background: rgba(224, 224, 224, 0.9);\n  position: relative;\n}\n.common-input-cancel-button i {\n  position: absolute;\n  top: 50%;\n  margin-top: -1px;\n  height: 1px;\n  left: 2px;\n  display: block;\n  background: #ffffff;\n}\n.common-input-cancel-button i.left-rotate {\n  -webkit-transform: rotate(135deg);\n  -moz-transform: rotate(135deg);\n  -ms-transform: rotate(135deg);\n  -o-transform: rotate(135deg);\n  transform: rotate(135deg);\n}\n.common-input-cancel-button i.right-rotate {\n  -webkit-transform: rotate(45deg);\n  -moz-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  -o-transform: rotate(45deg);\n  transform: rotate(45deg);\n}\n/*下拉菜单*/\ni.drop-down-arrow {\n  position: absolute;\n  top: 50%;\n  margin-top: -2px;\n  right: 6px;\n  font-size: 0;\n  height: 0;\n  width: 0;\n  border-width: 5px 5px 0;\n  border-style: solid dashed;\n  border-color: gray transparent transparent;\n  overflow: hidden;\n  -webkit-transition: all ease .4s ;\n  -moz-transition: all ease .4s ;\n  -ms-transition: all ease .4s ;\n  -o-transition: all ease .4s ;\n  transition: all ease .4s ;\n}\ndiv.question-drop-down-menu {\n  border: 1px solid #CDCDCD;\n  background: #fff;\n  cursor: pointer;\n  position: relative;\n  width: inherit;\n  max-width: 130px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  word-wrap: normal;\n  padding: 4px 20px 4px 10px;\n}\ndiv.question-drop-down-menu:hover i.drop-down-arrow {\n  transform: rotate(180deg);\n  animation-fill-mode: forwards;\n}\ndiv.question-drop-down-menu:hover ul.drop-down-list {\n  display: block;\n}\ndiv.question-drop-down-menu ul.drop-down-list {\n  padding: 4px 20px 4px 10px;\n  background: #fff;\n  width: 100%;\n  max-width: 130px;\n  position: absolute;\n  right: 0;\n  z-index: 1000;\n  display: none;\n  top: 100%;\n  left: 0;\n  margin-top: 1px;\n}\ndiv.question-drop-down-menu ul.drop-down-list li {\n  overflow: hidden;\n  width: 100%;\n  padding: 4px 0;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  word-wrap: normal;\n}\ndiv.question-drop-down-menu ul.drop-down-list li:hover {\n  color: orangered;\n}\n.select-drop-down-list {\n  font-size: 14px;\n  padding: 6px;\n  margin-left: -1px;\n  border: 1px solid #ccc;\n  -webkit-border-radius: 3px;\n  -moz-border-radius: 3px;\n  border-radius: 3px;\n  -webkit-box-shadow: -3px 2px 3px rgba(150, 150, 150, 0.3), 3px -2px 3px rgba(150, 150, 150, 0.3);\n  -moz-box-shadow: -3px 2px 3px rgba(150, 150, 150, 0.3), 3px -2px 3px rgba(150, 150, 150, 0.3);\n  box-shadow: -3px 2px 3px rgba(150, 150, 150, 0.3), 3px -2px 3px rgba(150, 150, 150, 0.3);\n  width: 200px;\n  background: #fff;\n  display: inline-block;\n  vertical-align: top;\n}\n.select-drop-down-list li.select-drop-down-input {\n  padding: 6px 24px 6px 6px;\n  position: relative;\n}\n.select-drop-down-list li.select-drop-down-input i.active.check-box {\n  border: 1px solid rgba(0, 0, 0, 0.2);\n}\n.select-drop-down-list li.select-drop-down-input i.active.check-box b {\n  display: block;\n  margin-left: 2px;\n  margin-top: -2px;\n  width: 5px;\n  height: 9px;\n  -webkit-transform: rotate(45deg);\n  -moz-transform: rotate(45deg);\n  -ms-transform: rotate(45deg);\n  -o-transform: rotate(45deg);\n  transform: rotate(45deg);\n  border: 1px solid;\n  border-color: transparent orangered orangered transparent;\n}\n.select-drop-down-list li.select-drop-down-input i.check-box {\n  width: 16px;\n  height: 16px;\n  padding: 2px;\n  display: inline-block;\n  vertical-align: middle;\n  -webkit-border-radius: 2px;\n  -moz-border-radius: 2px;\n  border-radius: 2px;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n}\n.select-drop-down-list li.select-drop-down-input .select-drop-down-check-content {\n  margin-left: 8px;\n  width: 130px;\n  display: inline-block;\n  vertical-align: middle;\n}\n.select-drop-down-list li.select-drop-down-input .select-drop-down-check-content span {\n  word-wrap: break-word;\n}\n/*下拉联想框*/\n.drop-down-suggestion {\n  width: inherit;\n  font-size: 14px;\n  cursor: pointer;\n  background: #fff;\n  position: relative;\n  max-width: 200px;\n}\n.drop-down-suggestion > .question-multi-menu-body {\n  min-width: 1000px;\n  position: absolute;\n  top: 100%;\n  left: 0;\n  z-index: 1000;\n  margin-top: -1px;\n  width: inherit;\n  display: none;\n}\n.drop-down-suggestion:hover > .question-multi-menu-body {\n  min-width: 1000px;\n  position: absolute;\n  top: 100%;\n  left: 0;\n  z-index: 1000;\n  margin-top: -1px;\n  width: inherit;\n  display: block;\n}\n.drop-down-suggestion:hover > .question-multi-menu-body li.select-drop-down-input:hover,\n.drop-down-suggestion:hover > .question-multi-menu-body li.select-drop-down-input.on {\n  background: #fdf5f2;\n  color: orangered;\n}\n.drop-down-suggestion .drop-down-suggestion-head {\n  width: inherit;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  padding: 9px;\n  -webkit-border-radius: 3px;\n  -moz-border-radius: 3px;\n  border-radius: 3px;\n}\n.drop-down-suggestion .drop-down-suggestion-head:focus {\n  -webkit-box-shadow: 0 0 3px orangered, inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  -moz-box-shadow: 0 0 3px orangered, inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  box-shadow: 0 0 3px orangered, inset 0 1px 1px rgba(0, 0, 0, 0.075);\n}\n.question-drop-menu {\n  font-size: 14px;\n  cursor: pointer;\n  background: #fff;\n  position: relative;\n  width: inherit;\n  max-width: 200px;\n}\n.question-drop-menu .question-drop-menu-head {\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  padding: 9px;\n  -webkit-border-radius: 3px;\n  -moz-border-radius: 3px;\n  border-radius: 3px;\n}\n.question-drop-menu .question-drop-menu-head .drop-down-hint {\n  display: block;\n  overflow: hidden;\n  padding-right: 10px;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  word-wrap: normal;\n}\n.question-drop-menu:hover .question-drop-menu-body {\n  display: block;\n}\n.question-drop-menu:hover .question-drop-menu-head {\n  -webkit-box-shadow: 0 0 3px orangered, inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  -moz-box-shadow: 0 0 3px orangered, inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  box-shadow: 0 0 3px orangered, inset 0 1px 1px rgba(0, 0, 0, 0.075);\n}\n.question-drop-menu:hover i.drop-down-arrow {\n  transform: rotate(180deg);\n  animation-fill-mode: forwards;\n}\n.question-drop-menu .question-drop-menu-body {\n  min-width: 1000px;\n  position: absolute;\n  top: 100%;\n  left: 0;\n  z-index: 1000;\n  display: none;\n  margin-top: -1px;\n}\n.question-drop-menu .question-drop-menu-body:after {\n  content: '';\n  display: block;\n  clear: both;\n}\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 172 */
+/* 171 */
 /***/ function(module, exports) {
 
 	/*
@@ -20901,7 +20466,7 @@
 
 
 /***/ },
-/* 173 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -21126,16 +20691,16 @@
 
 
 /***/ },
-/* 174 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(175);
+	var content = __webpack_require__(174);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(173)(content, {});
+	var update = __webpack_require__(172)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -21152,10 +20717,10 @@
 	}
 
 /***/ },
-/* 175 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(172)();
+	exports = module.exports = __webpack_require__(171)();
 	// imports
 
 
